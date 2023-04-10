@@ -2,9 +2,8 @@ delete([],_,[]).
 delete([X|T],X,L):-delete(T,X,L).
 delete([H|T],X,[H|L]):-delete(T,X,L).
 
-is_sorted([]).
-is_sorted([_]).
-is_sorted([X,Y|T]):-X<=Y, is_sorted([Y|T]).
+sort(_,[]).
+sort(X,[Y|T]):-sort(X,T),X<=Y.
 
 deleteFirst([],[],[]).
 deleteFirst([X|T],X,L):-deleteFirst(T,[],L).
